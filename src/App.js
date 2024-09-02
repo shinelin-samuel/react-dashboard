@@ -1,45 +1,31 @@
 import React from 'react';
-import { Container, Grid, Paper, Typography } from '@mui/material';
-import DashboardCard from './components/DashboardCard';
-import DataChart from './components/DataChart';
-import DataTable from './components/DataTable';
+import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <Container maxWidth="lg" style={{ marginTop: '2rem' }}>
-      <Typography variant="h4" gutterBottom>
-        Dashboard
-      </Typography>
-      <Grid container spacing={3}>
-        {/* Cards */}
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardCard title="Users" value="1,200" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardCard title="Sales" value="$23,000" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardCard title="Orders" value="340" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardCard title="Revenue" value="$50,000" />
-        </Grid>
-
-        {/* Chart */}
-        <Grid item xs={12}>
-          <Paper style={{ padding: '1rem' }}>
-            <DataChart />
-          </Paper>
-        </Grid>
-
-        {/* Table */}
-        <Grid item xs={12}>
-          <Paper style={{ padding: '1rem' }}>
-            <DataTable />
-          </Paper>
-        </Grid>
-      </Grid>
-    </Container>
+      <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
+          </ul>
+        </nav>        
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
