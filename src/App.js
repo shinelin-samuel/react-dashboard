@@ -6,6 +6,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Dashboard';
 
+import SampleAPI from './api/client/SampeAPI';
+
 function App() {
   return (
       <BrowserRouter>
@@ -16,6 +18,7 @@ function App() {
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/API">API</Link></li>
           </ul>
         </nav>        
         <Routes>
@@ -23,6 +26,7 @@ function App() {
           <Route path='/about' element={<About/>} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/API' element={<SampleAPI />} />
         </Routes>
       </div>
     </BrowserRouter>
